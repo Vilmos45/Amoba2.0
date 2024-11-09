@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(29, 29, 29);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    user-select: none;
+    color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 300%;
+}
+
+#jön {
+    font-size: 200%;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#pálya {
+    width: 621px;
+    height: 621px;
+    table-layout: fixed;
+    font-size: 750%;
+    color: black;
+    border-spacing: 2px;
+    cursor: crosshair;
+    border: 2px solid whitesmoke;
+}
+
+td {
+    height: 207px;
+    width: 207px;
+    border: 1px solid rgb(30, 34, 57);
+    text-align: center;
+    vertical-align: middle;
+    /*font-family: 'Brush Script MT';  prototípus */
+    font-family: 'Brush Script MT', cursive;
+}
+
+.vil {
+    background-color: whitesmoke;
+}
+
+.söt {
+    background-color: rgb(30, 34, 57);
+}
+
