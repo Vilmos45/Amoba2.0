@@ -11,7 +11,7 @@ const winningCombinations = [
     [1, 4, 7], [2, 5, 8], [3, 6, 9]
 ];
 
-// A cellák kezelése
+//Játékosok lépése
 cells.forEach(cell => {
   cell.addEventListener("click", function () {
     if (cell.textContent === "" && isActive) { 
@@ -41,15 +41,11 @@ cells.forEach(cell => {
               alert(currentPlayer === "O" ? "Nyertél!" : "Vesztettél!"  );
               currentPlayer = "-";
               isActive = false;
-            }
+          }
           
-            if (currentPlayer === "O") {
-              botm()
-            }
-            // currentPlayer = currentPlayer === "O" ? "X" : "O";
-            // statusDisplay.textContent = currentPlayer === "O" ? "Te jössz!" : "A Bot lép!";
-            // statusDisplay.style.color = currentPlayer === "O" ? "rgb(80,77,255)" : "red";
-          
+          if (currentPlayer === "O") {
+            botm()
+          }
           if (isGameOver()) {
             statusDisplay.textContent = "Döntetlen!";
             statusDisplay.style.color = "whitesmoke"; 
