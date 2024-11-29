@@ -46,10 +46,7 @@ cells.forEach(cell => {
             if (currentPlayer === "O") {
               botm()
             }
-            // currentPlayer = currentPlayer === "O" ? "X" : "O";
-            // statusDisplay.textContent = currentPlayer === "O" ? "Te jössz!" : "A Bot lép!";
-            // statusDisplay.style.color = currentPlayer === "O" ? "rgb(80,77,255)" : "red";
-          
+            
           if (isGameOver()) {
             statusDisplay.textContent = "Döntetlen!";
             statusDisplay.style.color = "whitesmoke"; 
@@ -67,9 +64,15 @@ cells.forEach(cell => {
 function botm() {
   const emptyC = Array.from(cells).filter(cell => cell.textContent === "");
   if (emptyC.length > 0) {
-    const randomC = emptyC[Math.floor(Math.random() * emptyC.length)];
+
+    let randomC = emptyC[Math.floor(Math.random() * emptyC.length)];
+
+
     randomC.textContent = "X";
     randomC.style.color = "red";
+
+
+
     if (checkWinner()) {
       statusDisplay.textContent = "Vesztettél!";
       statusDisplay.style.color = "red";

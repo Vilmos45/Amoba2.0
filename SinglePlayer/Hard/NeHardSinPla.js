@@ -62,9 +62,37 @@ cells.forEach(cell => {
 
 //bot
 function botm() {
-  const emptyC = Array.from(cells).filter(cell => cell.textContent === "");
+  let emptyC = Array.from(cells).filter(cell => cell.textContent === "");
   if (emptyC.length > 0) {
+
     const randomC = emptyC[Math.floor(Math.random() * emptyC.length)];
+  if(s1.textContent === O && s2.textContent === O){ //1,2
+  emptyC = s3;
+  }  else if(s4.textContent === O && s5.textContent === O){ //4,5
+    emptyC = s6;
+    }  else if(s7.textContent === O && s8.textContent === O){ //7,8
+      emptyC = s9;
+      }  else if(s1.textContent === O && s4.textContent === O){ //1,4
+        emptyC = s7;
+        }  else if(s2.textContent === O && s5.textContent === O){ //2,5
+          emptyC = s8;
+          }  else if(s3.textContent === O && s6.textContent === O){ //3,6
+            emptyC = s9;
+            } else if(s4.textContent === O && s5.textContent === O){ //3,2
+              emptyC = s1;
+              }  else if(s6.textContent === O && s5.textContent === O){ //6,5
+                emptyC = s4;
+                }  else if(s9.textContent === O && s8.textContent === O){ //9,8
+                  emptyC = s7;
+                  } else if(s1.textContent === O && s3.textContent === O){ //1,3
+                    emptyC = s2;
+                    } else if(s4.textContent === O && s6.textContent === O){ //4,6
+                      emptyC = s5;
+                      } else if(s7.textContent === O && s9.textContent === O){ //7,9
+                        emptyC = s8;
+                        }
+
+
     randomC.textContent = "X";
     randomC.style.color = "red";
     if (checkWinner()) {
