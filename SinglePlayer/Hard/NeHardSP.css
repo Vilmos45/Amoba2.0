@@ -5,7 +5,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 99%;
+    width: 100%;
     user-select: none;
     color: whitesmoke;
 }
@@ -19,8 +20,8 @@ h1 {
 #jön {
     font-size: 200%;
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 6,5%;
+    left: 1%;
     font-family: Arial, sans-serif;
 }
 
@@ -33,6 +34,7 @@ h1 {
     border-spacing: 2px;
     cursor: crosshair;
     border: 2px solid whitesmoke;
+    background-color: rgb(30, 34, 57);
 }
 
 td {
@@ -41,7 +43,6 @@ td {
     border: 1px solid rgb(30, 34, 57);
     text-align: center;
     vertical-align: middle;
-    /*font-family: 'Brush Script MT';  prototípus */
     font-family: 'Brush Script MT', cursive;
 }
 
@@ -49,6 +50,3 @@ td {
     background-color: whitesmoke;
 }
 
-.söt {
-    background-color: rgb(30, 34, 57);
-}
