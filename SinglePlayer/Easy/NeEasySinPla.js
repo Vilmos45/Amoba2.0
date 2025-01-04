@@ -37,7 +37,7 @@ cells.forEach(cell => {
           if (checkWinner()) {
               isActive = false;
               statusDisplay.textContent = currentPlayer === "O" ?  "Te nyertél!":"A Bot nyert!" ;
-              statusDisplay.style.color = currentPlayer === "O" ?  "rgb(80,77,255)" :"red" ;
+              statusDisplay.style.color = currentPlayer === "O" ?  "blue" :"red" ;
               alert(currentPlayer === "O" ? "Nyertél!" : "Vesztettél!"  );
               currentPlayer = "-";
               isActive = false;
@@ -46,9 +46,6 @@ cells.forEach(cell => {
             if (currentPlayer === "O") {
               botm()
             }
-            // currentPlayer = currentPlayer === "O" ? "X" : "O";
-            // statusDisplay.textContent = currentPlayer === "O" ? "Te jössz!" : "A Bot lép!";
-            // statusDisplay.style.color = currentPlayer === "O" ? "rgb(80,77,255)" : "red";
           
           if (isGameOver()) {
             statusDisplay.textContent = "Döntetlen!";
