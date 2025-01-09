@@ -1,5 +1,5 @@
 const statusDisplay = document.getElementById("jön");
-statusDisplay.style.color = "rgb(80,77,255)";
+statusDisplay.style.color = "rgb(44, 41, 194)";
 
 const cells = document.querySelectorAll(".click");
 let currentPlayer = "O"; 
@@ -18,7 +18,7 @@ cells.forEach(cell => {
   cell.addEventListener("click", function () {
     if (cell.textContent === "" && isActive) { 
       cell.textContent = "O";
-      cell.style.color = "rgb(80,77,255)";
+      cell.style.color = "rgb(44, 41, 194)";
 
       statusDisplay.style.color = "rgb(14, 13, 13)";  
       let dots = 0;
@@ -78,7 +78,7 @@ function botm() {
       isActive = true;
       currentPlayer = "O";
       statusDisplay.textContent = "Te jössz!";
-      statusDisplay.style.color = "rgb(80,77,255)";
+      statusDisplay.style.color = "rgb(44, 41, 194)";
     }
   }
 }

@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(29, 29, 29); /* Háttér szín */
+    background: radial-gradient(ellipse at bottom, rgb(28, 24, 94) 15%, rgb(29, 29, 29) 75%);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,7 @@ button {
     border-radius: 20px;
     background-color: white;
     color: black;
-    border: 5px solid blue;
+    border: 5px solid #3A8DF4;
 }
 
 #kezdőlap {
