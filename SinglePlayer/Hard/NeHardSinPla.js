@@ -1,5 +1,4 @@
 const statusDisplay = document.getElementById("jön");
-statusDisplay.style.color = "rgb(80,77,255)";
 
 const cells = document.querySelectorAll(".click");
 let currentPlayer = "O"; 
@@ -17,7 +16,7 @@ cells.forEach(cell => {
   cell.addEventListener("click", function () {
     if (cell.textContent === "" && isActive) { 
       cell.textContent = "O";
-      cell.style.color = "rgb(80,77,255)";
+      cell.style.color = "blue";
 
       statusDisplay.style.color = "rgb(14, 13, 13)";  
       let dots = 0;
@@ -38,7 +37,7 @@ cells.forEach(cell => {
           if (checkWinner()) {
               isActive = false;
               statusDisplay.textContent = currentPlayer === "O" ?  "Te nyertél!":"A Bot nyert!" ;
-              statusDisplay.style.color = currentPlayer === "O" ?  "rgb(80,77,255)" :"red" ;
+              statusDisplay.style.color = currentPlayer === "O" ?  "blue" :"red" ;
               alert(currentPlayer === "O" ? "Nyertél!" : "Vesztettél!"  );
               currentPlayer = "-";
               isActive = false;
@@ -77,7 +76,7 @@ function botm() {
       isActive = true;
       currentPlayer = "O";
       statusDisplay.textContent = "Te jössz!";
-      statusDisplay.style.color = "rgb(80,77,255)";
+      statusDisplay.style.color = "blue";
     }
   }
 }

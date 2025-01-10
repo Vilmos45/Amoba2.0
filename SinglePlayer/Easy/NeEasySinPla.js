@@ -1,6 +1,4 @@
-const statusDisplay = document.getElementById("jön");
-statusDisplay.style.color = "rgb(44, 41, 194)";
-
+const jon = document.getElementById("jön");
 const cells = document.querySelectorAll(".click");
 let currentPlayer = "O"; 
 let isActive = true;
@@ -11,47 +9,45 @@ const winningCombinations = [
     [1, 4, 7], [2, 5, 8], [3, 6, 9]
 ];
 
-
 console.info("Nehézség : könnyű, Egyjátékos");
-// A cellák kezelése
 cells.forEach(cell => {
   cell.addEventListener("click", function () {
     if (cell.textContent === "" && isActive) { 
       cell.textContent = "O";
-      cell.style.color = "rgb(44, 41, 194)";
+      cell.style.color = "blue";
+      jon.textContent = "";
+      jon.style.color = "rgb(245, 245, 245)"; 
+      let pontok = 0;
 
-      statusDisplay.style.color = "rgb(14, 13, 13)";  
-      let dots = 0;
-
-      const dotInterval = setInterval(() => {
-        statusDisplay.style.color = "rgb(245, 245, 245)";  
-        dots = (dots + 1) % 4; 
-        statusDisplay.textContent = ".".repeat(dots); 
+      const pontsorozat = setInterval(() => {
+        pontok = (pontok + 1) % 4; 
+        jon.textContent = ".".repeat(pontok); 
       }, 334);
 
       isActive = false; 
 
       setTimeout(() => {
-        clearInterval(dotInterval);
-        statusDisplay.textContent = "..."; 
+        
+        clearInterval(pontsorozat);
+        jon.textContent = "..."; 
 
         setTimeout(() => {
           if (checkWinner()) {
-              isActive = false;
-              statusDisplay.textContent = currentPlayer === "O" ?  "Te nyertél!":"A Bot nyert!" ;
-              statusDisplay.style.color = currentPlayer === "O" ?  "blue" :"red" ;
-              alert(currentPlayer === "O" ? "Nyertél!" : "Vesztettél!"  );
-              currentPlayer = "-";
-              isActive = false;
-            }
+            isActive = false;
+            jon.textContent = currentPlayer === "O" ?  "Nyertél!":"Vesztettél" ;
+            jon.style.color = currentPlayer === "O" ?  "blue" :"red" ;
+            alert(currentPlayer === "O" ? "Nyertél! \nNem lehetett nehéz." : "Vesztettél,\nde hogyan???"  );
+            currentPlayer = "n/a";
+            isActive = false;
+          }
           
-            if (currentPlayer === "O") {
-              botm()
-            }
+          if (currentPlayer === "O") {
+            botm()
+          }
           
           if (isGameOver()) {
-            statusDisplay.textContent = "Döntetlen!";
-            statusDisplay.style.color = "whitesmoke"; 
+            jon.textContent = "Döntetlen!";
+            jon.style.color = "whitesmoke"; 
             alert("A játéknak vége! A pálya betelt, ezért döntetlen.");
             isActive = false;
           }
@@ -62,7 +58,7 @@ cells.forEach(cell => {
   });
 });
 
-//bot
+
 function botm() {
   const emptyC = Array.from(cells).filter(cell => cell.textContent === "");
   if (emptyC.length > 0) {
@@ -70,20 +66,19 @@ function botm() {
     randomC.textContent = "X";
     randomC.style.color = "red";
     if (checkWinner()) {
-      statusDisplay.textContent = "Vesztettél!";
-      statusDisplay.style.color = "red";
-      alert("A Bot nyert!");
       isActive = false;
+      jon.textContent = "Vesztettél!";
+      jon.style.color = "red";
+      alert("A Bot nyert!");
     } else {
       isActive = true;
       currentPlayer = "O";
-      statusDisplay.textContent = "Te jössz!";
-      statusDisplay.style.color = "rgb(44, 41, 194)";
+      jon.textContent = "Te jössz!";
+      jon.style.color = "blue";
     }
   }
 }
 
-//győz
 function checkWinner() {
   return winningCombinations.some(combination => {
       const [a, b, c] = combination.map(index => index - 1);
@@ -95,7 +90,6 @@ function checkWinner() {
   });
 }
 
-//game over
 function isGameOver() {
   return Array.from(cells).every(cell => cell.textContent !== "");
 }

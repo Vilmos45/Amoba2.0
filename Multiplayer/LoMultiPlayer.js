@@ -1,7 +1,4 @@
-const statusDisplay = document.getElementById("jön");
-
-statusDisplay.style.color = "blue";
-
+const jon = document.getElementById("jön");
 const cells = document.querySelectorAll(".click");
 let currentPlayer = "O"; 
 let isActive = true;
@@ -19,37 +16,38 @@ cells.forEach(cell => {
     if (cell.textContent === "" && isActive) { 
       cell.textContent = currentPlayer;
       cell.style.color = currentPlayer === "X" ? "red" : "blue";
-
-      statusDisplay.style.color = "rgb(14, 13, 13)";  
+      jon.textContent = "";
+      jon.style.color = "rgb(245, 245, 245)"; 
+      
       let dots = 0;
 
       const dotInterval = setInterval(() => {
-        statusDisplay.style.color = "rgb(245, 245, 245)";  
+         
         dots = (dots + 1) % 4; 
-        statusDisplay.textContent = ".".repeat(dots); 
+        jon.textContent = ".".repeat(dots); 
       }, 334);
 
       isActive = false; 
 
       setTimeout(() => {
         clearInterval(dotInterval);
-        statusDisplay.textContent = "..."; 
+        jon.textContent = "..."; 
 
         setTimeout(() => {
           if (checkWinner()) {
-              statusDisplay.textContent = currentPlayer === "X" ? "A Piros játékos nyert!" : "A Kék játékos nyert!";
-              statusDisplay.style.color = currentPlayer === "X" ? "red" : "blue";
-              alert(currentPlayer === "X" ? "A Piros játékos nyert!" : "A Kék játékos nyert!");
+              jon.textContent = currentPlayer === "X" ? "Piros játékos nyert!" : "Kék játékos nyert!";
+              jon.style.color = currentPlayer === "X" ? "red" : "blue";
+              alert(currentPlayer === "X" ? "A Piros játékos nyert!\nA Kék játékos vesztett." : "A Kék játékos nyert!\nA Piros játékos vesztett.");
               isActive = false;
             return;
           }
 
           currentPlayer = currentPlayer === "X" ? "O" : "X";
-            statusDisplay.textContent = currentPlayer === "X" ? "A piros játékos jön!" : "A kék játékos jön!";
-            statusDisplay.style.color = currentPlayer === "X" ? "red" : "blue";
+            jon.textContent = currentPlayer === "X" ? "A piros játékos jön!" : "A kék játékos jön!";
+            jon.style.color = currentPlayer === "X" ? "red" : "blue";
           if (isGameOver()) {
-            statusDisplay.textContent = "Döntetlen!";
-            statusDisplay.style.color = "whitesmoke"; 
+            jon.textContent = "Döntetlen!";
+            jon.style.color = "whitesmoke"; 
             alert("A játéknak vége! A pálya betelt, ezért döntetlen.");
           } else {
             isActive = true;
