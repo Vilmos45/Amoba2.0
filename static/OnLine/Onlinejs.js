@@ -9,7 +9,7 @@ const winningCombinations = [
     [1, 4, 7], [2, 5, 8], [3, 6, 9]
 ];
 
-console.info("Nehézség : könnyű, Egyjátékos");
+console.info("Online játék");
 cells.forEach(cell => {
   cell.addEventListener("click", function () {
     if (cell.textContent === "" && isActive) { 
